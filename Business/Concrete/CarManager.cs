@@ -16,6 +16,19 @@ namespace Business.Concrete
             _CarDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+            if(car.DailyPrice >0 && car.Description.Length >= 2)
+            {
+                _CarDal.Add(car);
+
+            }
+            else
+            {
+                Console.WriteLine("Fiyat 0'dan büyük olmalı ve Ad 2 karakter veya daha uzun girilmeli ");
+            }
+        }
+
         public List<Car> GetAll()
         {
             return _CarDal.GetAll();
@@ -23,7 +36,7 @@ namespace Business.Concrete
 
         public List<Car> GetById(int categoryId)
         {
-            return _CarDal.GetById(categoryId);
+            throw new NotImplementedException();
         }
     }
 }
