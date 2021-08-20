@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Linq.Expressions;
+using Entites.DTOs;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -55,6 +56,11 @@ namespace DataAccess.Concrete.InMemory
             return _cars.Where(x => x.Id == categoryId).ToList();
         }
 
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetCarsByBrandId(Expression<Func<Car, bool>> filter = null)
         {
             throw new NotImplementedException();
@@ -73,14 +79,6 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.Description = car.Description;
         }
 
-        Car ICarDal.GetCarsByBrandId(Expression<Func<Car, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        Car ICarDal.GetCarsColorId(Expression<Func<Car, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

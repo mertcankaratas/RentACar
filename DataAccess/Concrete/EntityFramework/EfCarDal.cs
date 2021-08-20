@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Entites.DTOs;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -45,6 +46,27 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 return filter == null ? context.Set<Car>().ToList() : context.Set<Car>().Where(filter).ToList();
             }
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            using (SqlDatabaseContext context = new SqlDatabaseContext())
+            {
+                var result = from cr in context.Cars
+                             join c in context.Colors
+                             on cr.ColorId equals c.Id
+                             join b in context.Brands
+                             on cr.BrandId equals b.Id
+                             select new CarDetailDto
+                             {
+                                 CarName = cr.CarName,
+                                 BrandName = b.Name,
+                                 ColorName= c.Name,
+                                 DailyPrice = cr.DailyPrice
+                             };
+                return result.ToList();
+            }
+           
         }
 
         public Car GetCarsByBrandId(Expression<Func<Car, bool>> filter)

@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using Core.DataAccess;
 using Entites.Concrete;
+using Entites.DTOs;
 
 namespace DataAccess.Abstract
 {
    public interface ICarDal:IEntityRepository<Car>
     {
-        Car GetCarsByBrandId(Expression<Func<Car, bool>> filter);
-        Car GetCarsColorId(Expression<Func<Car, bool>> filter);
+
+        List<CarDetailDto> GetCarDetails();
     }
 }
