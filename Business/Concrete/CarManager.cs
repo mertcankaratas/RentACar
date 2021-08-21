@@ -4,6 +4,7 @@ using Entites.Concrete;
 using Entites.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -52,7 +53,7 @@ namespace Business.Concrete
 
         public List<CarDetailDto> GetCarDetails()
         {
-            return _CarDal.GetCarDetails();
+            return _CarDal.GetCarDetails().ToList();
         }
 
         public void Update(Car car)

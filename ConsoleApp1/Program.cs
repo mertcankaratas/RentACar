@@ -13,25 +13,37 @@ namespace ConsoleApp1
         {
 
             CarManager carManager = new CarManager(new EfCarDal());
+            //CarAdd(carManager);
+            //CarDelete(carManager);
+            //CarUpdate(carManager);
+            CarDetails(carManager);
 
-            //carManager.Add(new Car { BrandId = 1, ColorId = 5, ModelYear="2018", DailyPrice=337500,Description="15000 Km'de" });
-            //carManager.Delete(new Car { Id = 1003 });
-            //carManager.Update(new Car {Id=1002 ,BrandId=5,ColorId=4, ModelYear = "2018", DailyPrice = 705000, Description="Jantlar yeni değişti"});
 
-           foreach (var cr in carManager.GetCarDetails() )
-           {
-                Console.WriteLine(cr.BrandName);
+            
+        }
+
+        private static void CarDetails(CarManager carManager)
+        {
+            
+            foreach (var cr in carManager.GetCarDetails())
+            {
+                Console.WriteLine($"{cr.BrandName} {cr.ColorName} {cr.CarName} {cr.DailyPrice}  ");
             }
+        }
 
+        private static void CarUpdate(CarManager carManager)
+        {
+            carManager.Update(new Car { Id = 1002, BrandId = 5, ColorId = 4, CarName="Sedan", ModelYear = "2018", DailyPrice = 705000, Description = "Jantlar yeni değişti" });
+        }
 
-            //Car addCar = new Car { Id = 6, BrandId = 3, ColorId = 4, DailyPrice = 4548575, ModelYear = "2004", Description = "Aile Dostu" };
+        private static void CarDelete(CarManager carManager)
+        {
+            carManager.Delete(new Car { Id = 1003 });
+        }
 
-            //carManager.Add(addCar);
-            //foreach (var car  in carManager.GetAll())
-            //{
-            //    Console.WriteLine(car.BrandId);
-            //}
-            //Console.WriteLine("Hello World!");
+        private static void CarAdd(CarManager carManager)
+        {
+            carManager.Add(new Car { BrandId = 1, ColorId = 5, ModelYear = "2018", DailyPrice = 337500, Description = "15000 Km'de" });
         }
     }
 }
