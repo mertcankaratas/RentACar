@@ -12,23 +12,30 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            CarManager carManager = new CarManager(new EfCarDal());
+            
             //CarAdd(carManager);
             //CarDelete(carManager);
             //CarUpdate(carManager);
-            CarDetails(carManager);
+            CarDetails();
+
 
 
             
         }
 
-        private static void CarDetails(CarManager carManager)
+        private static void CarDetails()
         {
-            
-            foreach (var cr in carManager.GetCarDetails())
-            {
-                Console.WriteLine($"{cr.BrandName} {cr.ColorName} {cr.CarName} {cr.DailyPrice}  ");
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetCarDetails();
+
+            if (result.Success == true) {
+
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine($"{car.BrandName} {car.ColorName} {car.CarName} {car.DailyPrice}  ");
+                }
             }
+           
         }
 
         private static void CarUpdate(CarManager carManager)
