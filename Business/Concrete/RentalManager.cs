@@ -36,22 +36,22 @@ namespace Business.Concrete
 
         public IResult Delete(Rental rental)
         {
-            throw new NotImplementedException();
+            return new SuccessResult(Messages.RentalDeleted);
         }
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.BrandListed);
         }
 
         public IDataResult<Rental> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Rental>(_rentalDal.Get(c=> c.Id == id), Messages.BrandListed);
         }
 
         public IResult Update(Rental rental)
         {
-            throw new NotImplementedException();
+            return new SuccessResult(Messages.RentalUpdated);
         }
     }
 }
