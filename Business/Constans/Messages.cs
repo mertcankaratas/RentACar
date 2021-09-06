@@ -42,5 +42,11 @@ namespace Business.Constans
         public static string UserListed = "Kullanıcılar Listelendi";
         public static string CustomerListed = "Müşteriler Listelendi";
         public static string RentalListed = "Kiralamalar Listelendi";
+        internal static string CarImageAdded="Araba resmi eklendi ";
+        internal static string CarImageDeleted="Araba resmi silindi";
+        internal static string CarImageUpdated="Araba resmi güncellendi";
+        internal static string CarImageListed="Araba resimleri listelendi";
+        internal static string CarImageLimitExceded="Araba resim Limiti aşıldı";
+        internal static string CarNotFound="Araba resmi bulunamadı";
     }
 }
