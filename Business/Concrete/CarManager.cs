@@ -24,8 +24,9 @@ namespace Business.Concrete
         {
             _CarDal = carDal;
         }
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperation("car.admin")]
+        
         public IResult Add(Car car)
         {
          
