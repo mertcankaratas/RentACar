@@ -62,6 +62,17 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Car>> (_CarDal.GetAll(),Messages.CarListed);
         }
+
+        public IDataResult<List<Car>> GetAllBrandId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_CarDal.GetAll(c => c.BrandId == id));
+        }
+
+        public IDataResult<List<Car>> GetAllColorId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_CarDal.GetAll(c => c.ColorId == id));
+        }
+
         [CacheAspect]
         public IDataResult<Car> GetById(int id)
         {
