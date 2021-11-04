@@ -40,12 +40,12 @@ namespace ConsoleApp1
 
         private static void CarUpdate(CarManager carManager)
         {
-            carManager.Update(new Car { Id = 1002, BrandId = 5, ColorId = 4, CarName="Sedan", ModelYear = "2018", DailyPrice = 705000, Description = "Jantlar yeni değişti" });
+            carManager.Update(new Car { CarId = 1002, BrandId = 5, ColorId = 4, CarName="Sedan", ModelYear = "2018", DailyPrice = 705000, Description = "Jantlar yeni değişti" });
         }
 
         private static void CarDelete(CarManager carManager)
         {
-            carManager.Delete(new Car { Id = 1003 });
+            carManager.Delete(new Car { CarId = 1003 });
         }
 
         private static void CarAdd(CarManager carManager)

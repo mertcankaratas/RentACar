@@ -44,7 +44,7 @@ namespace Business.Concrete
 
         public IResult Delete(CarImage carImage)
         {
-            var result = GetCarImagePathIfExistById(carImage.Id);
+            var result = GetCarImagePathIfExistById(carImage.CarImageId);
             if (!result.Success)
                 return result;
 
@@ -78,12 +78,12 @@ namespace Business.Concrete
 
         public IDataResult<CarImage> GetById(int id)
         {
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.Id == id));
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.CarImageId == id));
         }
 
         public IResult Update(IFormFile formFile, CarImage carImage)
         {
-            var result = GetCarImagePathIfExistById(carImage.Id);
+            var result = GetCarImagePathIfExistById(carImage.CarImageId);
             if (!result.Success)
                 return result;
 
@@ -109,7 +109,7 @@ namespace Business.Concrete
 
         private IDataResult<string>  GetCarImagePathIfExistById(int id)
         {
-            var result = _carImageDal.Get(c => c.Id == id);
+            var result = _carImageDal.Get(c => c.CarImageId == id);
             if(result == null)
             {
                 return new ErrorDataResult<string>(Messages.CarNotFound);
